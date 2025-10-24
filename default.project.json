@@ -1,0 +1,98 @@
+{
+  "name": "Template-RBX",
+  "tree": {
+    "$className": "DataModel",
+
+   "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Libraries": {
+        "$className": "Folder",
+        "$path": "src/libs",
+        "$ignoreUnknownInstances": true
+      },
+      "Shared": {
+        "$className": "Folder",
+        "$path": "src/shared",
+        "$ignoreUnknownInstances": true
+      },
+      "Events": {
+        "$className": "Folder",
+        "GENERAL": {
+          "$className":"RemoteEvent"
+        },
+        "$ignoreUnknownInstances": true
+      },
+
+      "Assets": {
+        "$className": "Folder",
+        "Models": {
+          "$className":"Folder",
+          "$ignoreUnknownInstances": true
+        },
+
+        "ScreenGui": {
+          "$className":"Folder",
+          "$ignoreUnknownInstances": true
+        },
+
+        "Animations": {
+          "$className":"Folder",
+          "$ignoreUnknownInstances": true
+        },
+
+        "Sounds": {
+          "$className":"Folder",
+          "$ignoreUnknownInstances": true
+        },
+
+        "Effects": {
+          "$className":"Folder",
+          "$ignoreUnknownInstances": true
+        },
+
+        "$ignoreUnknownInstances": true
+      }
+
+    },
+
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "$path": "src/server"
+    },
+
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "Libraries":{
+        "$path": "src/libraries",
+        "$className": "Folder"
+      },
+       "$ignoreUnknownInstances": true
+    },
+
+    "StarterGui":{
+      "$className": "StarterGui",
+      "Interface":{
+        "$path": "src/interface",
+        "$className":"Folder"
+      },
+      "$ignoreUnknownInstances": true
+    },
+    
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "Client": {
+          "$className": "Folder",
+          "$path": "src/client"
+        },
+      "$ignoreUnknownInstances": true
+      }
+    },
+    
+    "SoundService": {
+      "$properties": {
+        "RespectFilteringEnabled": true
+      }
+    }
+  }
+}
