@@ -1,7 +1,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local BinderModule = require(game.ReplicatedStorage.Libraries.Binder)
-local ObjectEnum = require(game.ReplicatedStorage.Shared.Data.Objects.ObjectEnum)
+local ObjectEnum = require(game.ReplicatedStorage.Shared.Data.Enums.ObjectEnum)
 local Object = require(script.Parent.Object)
 
 local TAG = ObjectEnum.TAG
