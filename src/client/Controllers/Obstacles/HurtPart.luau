@@ -1,54 +1,47 @@
 
-
-local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local MaidModule = require(ReplicatedStorage.Libraries.Maid)
 local TouchConnector = require(script.Parent.Parent.Parent.Components.TouchConnector)
 
+local TOCUH_DELAY = 0.4
+local TOUCH_INDEX = 'HurtPart'
 
-local Player = Players.LocalPlayer
-local ObjectEvents = ReplicatedStorage.Events.Objects
-local CollectEvent = ObjectEvents.Collect
-
-local TOCUH_DELAY = 2
-local TOUCH_INDEX = 'ObjectTouched'
-
-local Object = {}
-Object.__index = Object
+local HurtPart = {}
+HurtPart.__index = HurtPart
 
 export type Interface = typeof(setmetatable({} :: {
     _MAID: MaidModule.Maid,
     PART: BasePart,
-}, Object))
+}, HurtPart))
 
-function Object.new(part: BasePart): Interface
+function HurtPart.new(part: BasePart): Interface
     local self = setmetatable({
         _MAID = MaidModule.new(),
         PART = part,
-    }, Object)
+    }, HurtPart)
 
     self:Spawn()
     
     return self
 end
 
-function Object.Touched(self: Interface)
-    CollectEvent:FireServer(self.PART)
+function HurtPart.Touched(self: Interface)
+    print('Tocuhed')
 end
 
-function Object.Spawn(self: Interface)
+function HurtPart.Spawn(self: Interface)
     self._MAID['Touch'] = TouchConnector.Fire(self.PART,TOUCH_INDEX,TOCUH_DELAY,function()
         self:Touched()
     end)
 end
 
-function Object.Destroy(self: Interface)
+function HurtPart.Destroy(self: Interface)
     self._MAID:Destroy()
     for index, _ in pairs(self) do
         self[index] = nil
     end
 end
 
-return Object
+return HurtPart
 
